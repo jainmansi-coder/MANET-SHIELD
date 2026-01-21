@@ -11,5 +11,4 @@ demonstrates a Blackhole attack along with detection and prevention.
 - C++
 - Ubuntu (WSL)
 
-## Team
-Nakara Group
+
