@@ -1,4 +1,5 @@
-# MANET Blackhole Attack Detection and Prevention using NS-3
+# MANETShield: Blackhole Attack Detection and Prevention using NS-3
+
 
 ## Overview
 This project simulates a Mobile Ad Hoc Network (MANET) using the AODV routing protocol in NS-3.  
