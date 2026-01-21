@@ -25,12 +25,30 @@ bool BlackholeDrop (
     NetDevice::PacketType packetType)
 {
     static uint32_t dropCount = 0;
-    dropCount++;
+    static bool detected = false;
 
-    NS_LOG_UNCOND ("[BLACKHOLE] Packet dropped | Count = " << dropCount);
+    const uint32_t DETECTION_THRESHOLD = 50;
 
-    return true;   // DROP packet
+    // Detection logic
+    if (!detected)
+    {
+        dropCount++;
+
+        if (dropCount >= DETECTION_THRESHOLD)
+        {
+            detected = true;
+            NS_LOG_UNCOND ("[DETECTION] Blackhole node detected!");
+            NS_LOG_UNCOND ("[PREVENTION] Activating prevention mechanism");
+        }
+
+        // Attack phase: drop packets
+        return true;
+    }
+
+    // Prevention phase: allow packets
+    return false;
 }
+
 
 
 
